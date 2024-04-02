@@ -14,11 +14,16 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version() . 'by Dai Luc';
+    return $router->app->version() . ' by Dai Luc';
 });
 
 $router->group(['prefix' => 'posts'], function () use ($router) {
     $router->get('/', 'PostsController@getPosts');
     $router->post('/', 'PostsController@createPosts');
     $router->put('/{id}', 'PostsController@updatePosts');
+    $router->delete('/{id}', 'PostsController@deletePosts');
+
+    $router->post('/{id}/like', 'PostsController@likePosts');
+    $router->delete('/{id}/unlike', 'PostsController@unlikePosts');
+
 });

@@ -65,4 +65,14 @@ class PostsController extends Controller
         }
         return Message::resMsg($data, "Cập nhật bài viết thành công", 200);
     }
+
+    public function deletePosts($id)
+    {
+        $posts = Posts::find($id);
+        if (empty($posts)) {
+            return Message::resMsg(null, "Bài viết không tồn tại", 401);
+        }
+        $posts->delete();
+        return Message::resMsg(null, "Xóa bài viết thành công", 200);
+    }
 }
