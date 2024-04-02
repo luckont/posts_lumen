@@ -63,6 +63,6 @@ class PostsController extends Controller
             DB::rollBack();
             return response()->json($e->getMessage(), 401);
         }
-        return $data;
+        return Message::resMsg($data, "Cập nhật bài viết thành công", 200);
     }
 }

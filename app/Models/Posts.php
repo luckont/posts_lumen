@@ -40,7 +40,7 @@ class Posts extends Model
                 'created_by' => $author_id
             ]);
 
-            // $newPosts->save();
+            $newPosts->save();
 
         } else {
 
@@ -61,7 +61,7 @@ class Posts extends Model
             $newPosts->updated_by = $author;
             $newPosts->updated_at = $now;
 
-            // $newPosts->save();
+            $newPosts->save();
         }
 
         return $newPosts;
